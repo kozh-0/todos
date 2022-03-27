@@ -1,14 +1,14 @@
 import { Button, Checkbox } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import { checkboxHandler, deleteTodo } from "../Redux/Todos/TodoActions";
 import { selectVisibleTodos } from "../Redux/Todos/TodoSelector";
 
 
 export default function Todos() {
-
+    const {filter} = useParams()
     const input = useSelector(state => state.todos.input);
-    const activeFilter = useSelector(state => state.filter);
-    const todos = useSelector(state => selectVisibleTodos(state.todos.data, activeFilter));
+    const todos = useSelector(state => selectVisibleTodos(state.todos.data, filter));
     
 
 	const dispatch = useDispatch();
@@ -16,7 +16,6 @@ export default function Todos() {
     return (
         <div>
             {todos.map((item, idx) => (
-                
                 <div key={item.id} className='todo_item'>
                     <Checkbox 
                         color="success"

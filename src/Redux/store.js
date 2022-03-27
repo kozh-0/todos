@@ -2,7 +2,7 @@ import { createStore } from "redux";
 import { rootReducer } from "./rootReducer";
 import { loadState, saveState } from "./localStorage";
 // в saveState у нас преобразования в json, что нагружает, тротл из библиотеки лодаш смягчает нагрузку
-import { throttle } from "lodash/throttle";
+// import { throttle } from "lodash/throttle";
 
 export const configureStore = () => {
     const persistedState = loadState();
@@ -15,7 +15,7 @@ export const configureStore = () => {
 
     // при каждом изменении обновляем LocalStorage
     // слушатель срабатывает при каждом диспатче и потенциальном изменении стора
-    store.subscribe(throttle(() => {
+    store.subscribe(/* throttle( */() => {
         /* //весь стор сохраняет
         saveState(store.getState()) */
 
@@ -23,7 +23,7 @@ export const configureStore = () => {
             todos: store.getState().todos,
         })
         // синхронизируем только todos с LS, чтобы filter всегда оставался all и не переключался на другие при перезагрузке
-    }, 1000))
+    }/* , 1000) */)
 // из тротла это таймаут на перезапись локал стоража после изменения стейта
     return store;
 }

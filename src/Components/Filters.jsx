@@ -1,34 +1,34 @@
 import { Button, ButtonGroup } from "@mui/material";
-import { useSelector, useDispatch } from "react-redux"
-import { setFilter } from "../Redux/filters/filterActions";
+import { Link, useParams } from "react-router-dom";
 
 
 export default function Filters() {
-
-    const dispatch = useDispatch();
-    const activeFilter = useSelector(state => state.filter);
+    const {filter: activeFilter = 'all'} = useParams();
 
     return (
         <div>
             <ButtonGroup >
-                <Button 
-                    style={{backgroundColor: activeFilter === 'all' ? '#ff9800' : 'white'}}
-                    color="secondary"
-                    variant="outlined"
-                    onClick={() => dispatch(setFilter('all'))}
-                >All</Button>
-                <Button 
-                    style={{backgroundColor: activeFilter === 'active' ? '#ff9800' : 'white'}}
-                    color="secondary"
-                    variant="outlined"
-                    onClick={() => dispatch(setFilter('active'))}
-                >Active</Button>
-                <Button 
+                <Link to='/all'>
+                    <Button
+                        style={{backgroundColor: activeFilter === 'all' ? '#ff9800' : 'white'}}
+                        color="secondary"
+                        variant="outlined"
+                    >All</Button>
+                </Link>
+                <Link to='/active'>
+                    <Button
+                        style={{backgroundColor: activeFilter === 'active' ? '#ff9800' : 'white'}}
+                        color="secondary"
+                        variant="outlined"
+                    >Active</Button>
+                </Link>
+                <Link to='/completed'>
+                    <Button 
                     style={{backgroundColor: activeFilter === 'completed' ? '#ff9800' : 'white'}}
                     color="secondary"
-                    variant="outlined"
-                    onClick={() => dispatch(setFilter('completed'))}
+                    variant="outlined" 
                 >Completed</Button>
+                </Link>
             </ButtonGroup>
         </div>
     )
