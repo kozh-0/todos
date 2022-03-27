@@ -7,9 +7,7 @@ export default function Filters() {
 
     const dispatch = useDispatch();
     const activeFilter = useSelector(state => state.filter);
-    // const visibleTodos = useSelector(state => state.filter);
 
-    // console.log(activeFilter);
     return (
         <div>
             <ButtonGroup >
