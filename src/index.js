@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { configureStore } from './Redux/store'
@@ -12,7 +12,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<App/>}>
+        <Route path='/todos' element={<App/>}>
           <Route path=':filter' element={<App/>}/>
         </Route>
       </Routes>

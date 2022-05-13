@@ -3,10 +3,10 @@ import {ADD_TODO, INPUT_HANDLER, CHECKBOX_HANDLER, DELETE_TODO} from './TodoType
 const initialValue = {
     input: '',
     data: [
-        {text: 'Learn JS', id: 1, checked: false},
-        {text: 'Learn React', id: 2, checked: false},
-        {text: 'Learn Redux', id: 3, checked: false},
-        {text: 'Купить сахар', id: 4, checked: false},
+        // {text: 'Learn JS', id: 1, checked: false},
+        // {text: 'Learn React', id: 2, checked: false},
+        // {text: 'Learn Redux', id: 3, checked: false},
+        // {text: 'Купить сахар', id: 4, checked: false},
     ]
 }
 
